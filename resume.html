@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="resume.ico" type="image/x-icon" />
+    <title>Luke Tucich - Resume</title>
+    <style>
+      :root {
+        --primary-color: #0066cc;
+        --text-color: #333333;
+        --background-color: #1c1c1c;
+        --paper-color: #ffffff;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body {
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        font-family: "Times New Roman", Times, serif;
+        color: var(--text-color);
+        line-height: 1.5;
+      }
+
+      .resume-container {
+        width: 100%;
+        max-width: 850px;
+        display: flex;
+        justify-content: center;
+        margin: 30px auto;
+      }
+
+      .resume {
+        width: 92%;
+        background-color: var(--paper-color);
+        padding: 35px 40px;
+        box-sizing: border-box;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+          0 20px 60px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .contact-info {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 16px;
+        animation: fadeIn 0.6s ease-out forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .section-header {
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 2px solid #333;
+        margin-top: 28px;
+        margin-bottom: 18px;
+        padding-bottom: 6px;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 32px;
+        letter-spacing: 0.5px;
+        text-align: center;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      h2 {
+        font-size: 19px;
+        margin-bottom: 6px;
+        margin-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      h3 {
+        font-size: 17px;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      .institution {
+        font-style: italic;
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 15px;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      ul {
+        margin-top: 8px;
+        margin-bottom: 16px;
+        padding-left: 22px;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      li {
+        margin-bottom: 6px;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #004d99;
+        text-decoration: underline;
+      }
+
+      .project-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        color: #555;
+        margin-top: 0;
+        margin-bottom: 8px;
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      .tech-stack {
+        font-style: italic;
+        max-width: 70%;
+      }
+
+      .links {
+        text-align: right;
+        min-width: 120px;
+      }
+
+      .skill-item {
+        margin: 6px 0;
+        font-size: 15px;
+        line-height: 1.4;
+        animation: fadeIn 0.4s ease-out forwards;
+        opacity: 0;
+      }
+
+      .skill-title {
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .skill-list {
+        font-weight: normal;
+      }
+
+      /* Animation delays for staggered effect */
+      h1 {
+        animation-delay: 0.05s;
+      }
+      .contact-info {
+        animation-delay: 0.1s;
+      }
+
+      .education-section .section-header {
+        animation-delay: 0.15s;
+      }
+      .education-section h2:nth-of-type(1) {
+        animation-delay: 0.2s;
+      }
+      .education-section .institution:nth-of-type(1) {
+        animation-delay: 0.25s;
+      }
+      .education-section ul:nth-of-type(1) {
+        animation-delay: 0.3s;
+      }
+      .education-section h2:nth-of-type(2) {
+        animation-delay: 0.35s;
+      }
+      .education-section .institution:nth-of-type(2) {
+        animation-delay: 0.4s;
+      }
+      .education-section ul:nth-of-type(2) {
+        animation-delay: 0.45s;
+      }
+
+      .skills-section .section-header {
+        animation-delay: 0.5s;
+      }
+      .skills-section .skill-item:nth-of-type(1) {
+        animation-delay: 0.55s;
+      }
+      .skills-section .skill-item:nth-of-type(2) {
+        animation-delay: 0.6s;
+      }
+      .skills-section .skill-item:nth-of-type(3) {
+        animation-delay: 0.65s;
+      }
+
+      .projects-section .section-header {
+        animation-delay: 0.7s;
+      }
+      .projects-section h2:nth-of-type(1) {
+        animation-delay: 0.75s;
+      }
+      .projects-section .project-info:nth-of-type(1) {
+        animation-delay: 0.8s;
+      }
+      .projects-section ul:nth-of-type(1) {
+        animation-delay: 0.85s;
+      }
+      .projects-section h2:nth-of-type(2) {
+        animation-delay: 0.9s;
+      }
+      .projects-section .project-info:nth-of-type(2) {
+        animation-delay: 0.95s;
+      }
+      .projects-section ul:nth-of-type(2) {
+        animation-delay: 1s;
+      }
+
+      .experience-section .section-header {
+        animation-delay: 1.05s;
+      }
+      .experience-section h2 {
+        animation-delay: 1.1s;
+      }
+      .experience-section .institution {
+        animation-delay: 1.15s;
+      }
+      .experience-section ul {
+        animation-delay: 1.2s;
+      }
+
+      .extracurricular-section .section-header {
+        animation-delay: 1.25s;
+      }
+      .extracurricular-section h2 {
+        animation-delay: 1.3s;
+      }
+      .extracurricular-section .institution {
+        animation-delay: 1.35s;
+      }
+      .extracurricular-section ul {
+        animation-delay: 1.4s;
+      }
+
+      /* Print styles for PDF export */
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+        }
+        .resume {
+          box-shadow: none;
+          padding: 0.5in;
+        }
+        .resume-container {
+          margin: 0;
+        }
+        /* Remove animations for print */
+        .section-header,
+        h1,
+        h2,
+        h3,
+        .contact-info,
+        .institution,
+        ul,
+        .project-info {
+          opacity: 1;
+          animation: none;
+        }
+      }
+
+      /* Tablet styles */
+      @media screen and (max-width: 768px) {
+        .resume-container {
+          width: 100%;
+          margin: 25px auto;
+        }
+        .resume {
+          width: 90%;
+          padding: 30px 35px;
+        }
+        h1 {
+          font-size: 26px;
+          margin-bottom: 10px;
+        }
+        h2 {
+          font-size: 16px;
+          margin-top: 16px;
+          margin-bottom: 4px;
+        }
+        .section-header {
+          font-size: 16px;
+          margin-top: 18px;
+          margin-bottom: 12px;
+          padding-bottom: 4px;
+        }
+        li,
+        .institution,
+        .project-info,
+        .skill-item {
+          font-size: 15px;
+        }
+      }
+
+      /* Mobile styles */
+      @media screen and (max-width: 480px) {
+        body {
+          padding: 15px;
+        }
+        .resume-container {
+          margin: 15px auto;
+        }
+        .resume {
+          width: 90%;
+          padding: 25px;
+          border-radius: 6px;
+        }
+        h1 {
+          font-size: 22px;
+          margin-bottom: 8px;
+        }
+        .contact-info {
+          font-size: 14px;
+          margin-bottom: 16px;
+        }
+        h2 {
+          font-size: 15px;
+          flex-direction: column;
+          margin-top: 16px;
+          margin-bottom: 3px;
+        }
+        h2 span {
+          margin-top: 2px;
+          font-size: 14px;
+        }
+        .section-header {
+          font-size: 15px;
+          margin-top: 16px;
+          margin-bottom: 10px;
+          padding-bottom: 3px;
+        }
+        .institution {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+        ul {
+          margin-top: 6px;
+          margin-bottom: 14px;
+          padding-left: 18px;
+        }
+        li {
+          font-size: 14px;
+          margin-bottom: 5px;
+          line-height: 1.35;
+        }
+        .skill-item {
+          font-size: 14px;
+          margin: 5px 0;
+          line-height: 1.35;
+        }
+        .project-info {
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 14px;
+          margin-bottom: 6px;
+        }
+        .tech-stack {
+          margin-bottom: 3px;
+          max-width: 100%;
+        }
+        .links {
+          text-align: left;
+          min-width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <div class="resume">
+        <h1>Luke Tucich</h1>
+        <div class="contact-info">
+          910-603-6184 | luketucich@gmail.com |
+          <a href="https://linkedin.com/in/luketucich" target="_blank"
+            >linkedin.com/in/luketucich</a
+          >
+          |
+          <a href="https://github.com/luketucich" target="_blank"
+            >github.com/luketucich</a
+          >
+        </div>
+
+        <div class="education-section">
+          <div class="section-header">Education</div>
+
+          <h2>
+            University of North Carolina at Charlotte
+            <span>Aug. 2024 – Present</span>
+          </h2>
+          <p class="institution">B.S. in Computer Science, Charlotte, NC</p>
+          <ul>
+            <li>GPA: 4.00 / 4.00</li>
+            <li>
+              Relevant Coursework: Data Structures &amp; Algorithms,
+              Human-Centered Computing, Database Design &amp; Implementation,
+              Computer Systems, Linear Algebra
+            </li>
+          </ul>
+
+          <h2>
+            Sandhills Community College <span>Jan. 2022 – Jul. 2024</span>
+          </h2>
+          <p class="institution">Associate of Science, Pinehurst, NC</p>
+          <ul>
+            <li>GPA: 3.87 / 4.00</li>
+            <li>
+              Relevant Coursework: Calculus I &amp; II, Programming &amp; Logic
+            </li>
+          </ul>
+        </div>
+
+        <div class="skills-section">
+          <div class="section-header">Skills</div>
+
+          <p class="skill-item">
+            <span class="skill-title">Languages:</span>
+            <span class="skill-list"
+              >JavaScript, TypeScript, Java, SQL (PostgreSQL), HTML, CSS</span
+            >
+          </p>
+          <p class="skill-item">
+            <span class="skill-title">Frameworks &amp; Libraries:</span>
+            <span class="skill-list"
+              >React, React Native, Node.js, Express, Expo, Tailwind CSS,
+              Prisma, Jest, Vitest, JUnit</span
+            >
+          </p>
+          <p class="skill-item">
+            <span class="skill-title">Tools &amp; Platforms:</span>
+            <span class="skill-list"
+              >Git, VS Code, NPM, Supabase, Render, Porkbun, Vite, Webpack,
+              ESLint</span
+            >
+          </p>
+        </div>
+
+        <div class="projects-section">
+          <div class="section-header">Projects</div>
+
+          <h2>Decipher <span>Apr. 2025</span></h2>
+          <div class="project-info">
+            <div class="tech-stack">
+              React, TypeScript, Node.js, Express, Prisma, Redis, PostgreSQL
+            </div>
+            <div class="links">
+              <a href="https://github.com/luketucich/decipher" target="_blank"
+                >GitHub</a
+              >
+              |
+              <a href="https://deciphergame.com/" target="_blank">Live Demo</a>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Engineered a scalable full-stack daily-puzzle platform using a
+              React and TypeScript front-end with a Node.js/Express back-end,
+              incorporating Prisma with Supabase PostgreSQL for efficient
+              database management.
+            </li>
+            <li>
+              Implemented Upstash Redis caching, resulting in an 85% reduction
+              in topic-fetch latency and a 70% increase in API response times.
+            </li>
+            <li>
+              Developed a JavaScript-based hint-generation engine leveraging the
+              Wikipedia API, NLP, and regex to dynamically create clues, and
+              orchestrated automated daily content refreshes with Node-Schedule.
+            </li>
+            <li>
+              Designed a mobile-first, accessible interface using CSS Modules
+              and React Router, achieving a 95/100 Google Lighthouse score.
+            </li>
+          </ul>
+
+          <h2>TuChess <span>Feb. 2025 – Apr. 2025</span></h2>
+          <div class="project-info">
+            <div class="tech-stack">
+              React, TypeScript, Node.js, Express, PostgreSQL, Socket.IO
+            </div>
+            <div class="links">
+              <a href="https://github.com/luketucich/tuchess" target="_blank"
+                >GitHub</a
+              >
+              |
+              <a href="https://tuchess.com/" target="_blank">Live Demo</a>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Built a real-time multiplayer chess platform with a React &amp;
+              TypeScript front-end and Node.js/Express back-end, utilising
+              Socket.IO for seamless gameplay and persistent match data.
+            </li>
+            <li>
+              Architected a TypeScript chess engine featuring robust move
+              validation and check/checkmate detection, achieving 100% test
+              coverage with Vitest.
+            </li>
+            <li>
+              Integrated Supabase PostgreSQL for scalable data storage and
+              deployed Google OAuth for secure authentication and session
+              management.
+            </li>
+            <li>
+              Crafted a responsive and accessible interface using CSS, featuring
+              board customization, and deployed on Render with a custom domain
+              to guarantee high availability.
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-section">
+          <div class="section-header">Experience</div>
+
+          <h2>
+            Walmart Sophomore Summit — Global Tech Track <span>Apr. 2025</span>
+          </h2>
+          <p class="institution">Bentonville, AR</p>
+          <ul>
+            <li>
+              Selected from a 6% acceptance pool to attend Walmart's immersive
+              weekend on emerging technology and software engineering at scale.
+            </li>
+            <li>
+              Participated in hands-on workshops and networking sessions with
+              senior engineers, product managers and executives.
+            </li>
+          </ul>
+        </div>
+
+        <div class="extracurricular-section">
+          <div class="section-header">Extracurricular</div>
+
+          <h2>LeetCode Club <span>Aug. 2024 – Present</span></h2>
+          <p class="institution">
+            University of North Carolina at Charlotte, Charlotte, NC
+          </p>
+          <ul>
+            <li>
+              Collaborate weekly to solve 3–5 LeetCode challenges, brainstorming
+              on a whiteboard and writing optimised code.
+            </li>
+            <li>
+              Mentor peers in a team-driven problem-solving environment, sharing
+              effective coding techniques.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
